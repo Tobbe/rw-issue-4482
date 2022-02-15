@@ -23,9 +23,9 @@ const HomePage = () => {
 
     logIn({ username: email, password }).then((user) => {
       console.log('user', user)
-      getUserProfile({ variables: { id: '' + user.id } }).then((data) => {
-        console.log('data', data)
-      })
+      // getUserProfile({ variables: { id: '' + user.id } }).then((data) => {
+      //   console.log('data', data)
+      // })
     })
   }, [logIn, getUserProfile])
 
