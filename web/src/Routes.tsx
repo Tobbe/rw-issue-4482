@@ -8,6 +8,7 @@
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
 import { Router, Route, Set } from '@redwoodjs/router'
+import UserProfilesLayout from 'src/layouts/UserProfilesLayout'
 import PostsLayout from 'src/layouts/PostsLayout';
 
 import BlogLayout from "src/layouts/BlogLayout";
@@ -15,6 +16,12 @@ import BlogLayout from "src/layouts/BlogLayout";
 const Routes = () => {
   return (
     (<Router>
+      <Set wrap={UserProfilesLayout}>
+            <Route path="/user-profiles/new" page={UserProfileNewUserProfilePage} name="newUserProfile" />
+            <Route path="/user-profiles/{id}/edit" page={UserProfileEditUserProfilePage} name="editUserProfile" />
+            <Route path="/user-profiles/{id}" page={UserProfileUserProfilePage} name="userProfile" />
+            <Route path="/user-profiles" page={UserProfileUserProfilesPage} name="userProfiles" />
+      </Set>
       <Set wrap={PostsLayout}>
             <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
             <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
