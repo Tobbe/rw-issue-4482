@@ -21,10 +21,9 @@ const HomePage = () => {
     const email = 'ns-coach@example.com'
     const password = 'password'
 
-    logIn({ email, password }).then(({ error, user }) => {
-      console.log('error', error)
+    logIn({ username: email, password }).then((user) => {
       console.log('user', user)
-      getUserProfile({ variables: { id: user.id } }).then((data) => {
+      getUserProfile({ variables: { id: '' + user.id } }).then((data) => {
         console.log('data', data)
       })
     })

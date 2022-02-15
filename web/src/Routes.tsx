@@ -9,24 +9,28 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 import UserProfilesLayout from 'src/layouts/UserProfilesLayout'
-import PostsLayout from 'src/layouts/PostsLayout';
+import PostsLayout from 'src/layouts/PostsLayout'
 
-import BlogLayout from "src/layouts/BlogLayout";
+import BlogLayout from 'src/layouts/BlogLayout'
 
 const Routes = () => {
   return (
-    (<Router>
+    <Router>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={UserProfilesLayout}>
-            <Route path="/user-profiles/new" page={UserProfileNewUserProfilePage} name="newUserProfile" />
-            <Route path="/user-profiles/{id}/edit" page={UserProfileEditUserProfilePage} name="editUserProfile" />
-            <Route path="/user-profiles/{id}" page={UserProfileUserProfilePage} name="userProfile" />
-            <Route path="/user-profiles" page={UserProfileUserProfilesPage} name="userProfiles" />
+        <Route path="/user-profiles/new" page={UserProfileNewUserProfilePage} name="newUserProfile" />
+        <Route path="/user-profiles/{id}/edit" page={UserProfileEditUserProfilePage} name="editUserProfile" />
+        <Route path="/user-profiles/{id}" page={UserProfileUserProfilePage} name="userProfile" />
+        <Route path="/user-profiles" page={UserProfileUserProfilesPage} name="userProfiles" />
       </Set>
       <Set wrap={PostsLayout}>
-            <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
-            <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
-            <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
-            <Route path="/posts" page={PostPostsPage} name="posts" />
+        <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
+        <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
+        <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
+        <Route path="/posts" page={PostPostsPage} name="posts" />
       </Set>
       <Set wrap={BlogLayout}>
         <Route path="/blog-post/{id:Int}" page={BlogPostPage} name="blogPost" />
@@ -34,8 +38,9 @@ const Routes = () => {
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
-      </Set></Router>)
-  );
+      </Set>
+    </Router>
+  )
 }
 
 export default Routes

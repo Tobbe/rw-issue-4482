@@ -37,3 +37,12 @@ model UserProfile {
   name  String
   email String
 }
+
+model User {
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  hashedPassword      String // <─┐
+  salt                String // <─┼─ add these lines
+  resetToken          String? // <─┤
+  resetTokenExpiresAt DateTime? // <─┘
+}
